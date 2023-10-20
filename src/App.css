@@ -19,8 +19,21 @@ body {
   box-sizing: border-box;
 }
 
-.heading-left,
+.heading-left{
+  margin-right: 10px;
+}
+
 .heading-right {
+  margin-bottom: 0;
+}
+
+.done {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.done input {
   margin-right: 10px;
 }
 
