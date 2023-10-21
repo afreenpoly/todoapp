@@ -2,9 +2,9 @@ import React from 'react'
 
 function Header() {
   const headerStyle = {
-    backgroundColor: "#98E4FF",
+    backgroundColor: "#AEDEFC",
     padding: "10px",
-    margin: "0",
+    marginBottom: "20px",
     fontFamily: "'Playfair Display', serif",
     fontWeight: 500,
     fontSize: "30px",
