@@ -31,6 +31,12 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
   const completedTasks = tasks.filter((task) => task.status === "completed");
   const pendingTasks = tasks.filter((task) => task.status === "pending");
 
@@ -46,6 +52,7 @@ function App() {
               placeholder="🖊 Add item..."
               value={newTask}
               onChange={(e) => setNewTask(e.target.value)}
+              onKeyDown={handleKeyPress}
             />
             <div className="input-group-append">
               <button className="btn btn-primary" onClick={addTask}>
