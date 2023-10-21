@@ -31,10 +31,21 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  const handleDelete = (taskId) => {
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedTasks);
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       addTask();
     }
+  };
+
+  const handleInputChange = (e) => {
+    // Capitalize the first letter and set the newTask value
+    const newValue = e.target.value;
+    setNewTask(newValue.charAt(0).toUpperCase() + newValue.slice(1));
   };
 
   const completedTasks = tasks.filter((task) => task.status === "completed");
@@ -43,15 +54,17 @@ function App() {
   return (
     <div>
       <div className="row">
-        <div className="col-lg-6 border">
-          <h2 className="underline-heading">Active Tasks</h2>
+        <div className="col-lg-6 card mb-4 rounded-3 ">
+          <div className="card-header py-3 mb-4">
+            <h2 className="my-0 fw-normal">Active Tasks</h2>
+          </div>
           <div className="input-group mb-3 ">
             <input
               type="text"
               className="form-control me-4"
               placeholder="🖊 Add item..."
               value={newTask}
-              onChange={(e) => setNewTask(e.target.value)}
+              onChange={handleInputChange}
               onKeyDown={handleKeyPress}
             />
             <div className="input-group-append">
@@ -65,23 +78,26 @@ function App() {
               key={task.id}
               task={task}
               onCheckboxChange={handleCheckboxChange}
+              onDelete={handleDelete}
             />
           ))}
         </div>
-        <div className="col-lg-6 border">
-          <h2 className="underline-heading">Tasks done</h2>
+        <div className="col-lg-6 card mb-4 rounded-3">
+          <div className="card-header py-3 mb-4">
+            <h2 className="my-0 fw-normal">Tasks done</h2>
+          </div>
           {completedTasks.map((task) => (
             <TaskItem
               key={task.id}
               task={task}
               onCheckboxChange={handleCheckboxChange}
+              onDelete={handleDelete}
             />
           ))}
         </div>
       </div>
     </div>
   );
-
 }
 
 export default App;

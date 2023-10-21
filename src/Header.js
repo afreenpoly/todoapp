@@ -1,16 +1,16 @@
-import React from 'react'
+import React from "react";
+import "./Header.css";
 
 function Header() {
-  const headerStyle = {
-    backgroundColor: "#AEDEFC",
-    padding: "10px",
-    marginBottom: "20px",
-    fontFamily: "'Playfair Display', serif",
-    fontWeight: 500,
-    fontSize: "30px",
-  };
-
-  return <div style={headerStyle}>Todo List</div>;
+  return (
+    <header>
+      <div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a className="d-flex align-items-center link-body-emphasis text-decoration-none">
+          <span className="fs-4">TodoList</span>
+        </a>
+      </div>
+    </header>
+  );
 }
 
 export default Header;
