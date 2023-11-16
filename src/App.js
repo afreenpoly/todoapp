@@ -52,16 +52,16 @@ function App() {
   const pendingTasks = tasks.filter((task) => task.status === "pending");
 
   return (
-    <div>
+    <div className="container">
       <div className="row">
-        <div className="col-lg-6 card mb-4 rounded-3 ">
+        <div className="col-lg-6 col-md-12 card mb-4 rounded-3">
           <div className="card-header py-3 mb-4">
             <h2 className="my-0 fw-normal">Active Tasks</h2>
           </div>
-          <div className="input-group mb-3 ">
+          <div className="input-group mb-3">
             <input
               type="text"
-              className="form-control me-4"
+              className="form-control"
               placeholder="🖊 Add item..."
               value={newTask}
               onChange={handleInputChange}
@@ -82,7 +82,7 @@ function App() {
             />
           ))}
         </div>
-        <div className="col-lg-6 card mb-4 rounded-3">
+        <div className="col-lg-6 col-md-12 card mb-4 rounded-3">
           <div className="card-header py-3 mb-4">
             <h2 className="my-0 fw-normal">Tasks done</h2>
           </div>
